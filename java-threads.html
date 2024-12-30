@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java Threads - SkibidiBlog</title><meta name="description" content="Luồng Java Luồng cho phép chương trình hoạt động hiệu quả hơn&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><meta name="theme-color" content="#17181E" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#D73A42" media="(prefers-color-scheme: light)"><meta name="msapplication-navbutton-color" content="#D73A42"><meta name="apple-mobile-web-app-status-bar-style" content="#D73A42"><link rel="canonical" href="https://LittleNakiri.github.io/SkibidiBlog/java-threads.html"><link rel="alternate" type="application/atom+xml" href="https://LittleNakiri.github.io/SkibidiBlog/feed.xml"><link rel="alternate" type="application/json" href="https://LittleNakiri.github.io/SkibidiBlog/feed.json"><meta property="og:title" content="Java Threads"><meta property="og:image" content="https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/1_CRwBFK3fJl6ntmdQ6hEsVQ.jpg"><meta property="og:image:width" content="1024"><meta property="og:image:height" content="768"><meta property="og:site_name" content="SkibidiBlog"><meta property="og:description" content="Luồng Java Luồng cho phép chương trình hoạt động hiệu quả hơn&hellip;"><meta property="og:url" content="https://LittleNakiri.github.io/SkibidiBlog/java-threads.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://LittleNakiri.github.io/SkibidiBlog/media/website/aadc063bdd1e9c8f453811c1e8ed625b.jpg" type="image/x-icon"><link rel="stylesheet" href="https://LittleNakiri.github.io/SkibidiBlog/assets/css/style.css?v=7815e1f605781f6892b999fe6ca17746"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://LittleNakiri.github.io/SkibidiBlog/java-threads.html"},"headline":"Java Threads","datePublished":"2024-12-30T23:17+07:00","dateModified":"2024-12-30T23:17+07:00","image":{"@type":"ImageObject","url":"https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/1_CRwBFK3fJl6ntmdQ6hEsVQ.jpg","height":768,"width":1024},"description":"Luồng Java Luồng cho phép chương trình hoạt động hiệu quả hơn&hellip;","author":{"@type":"Person","name":"Ninh Khắc Duy","url":"https://LittleNakiri.github.io/SkibidiBlog/authors/ninh-khac-duy/"},"publisher":{"@type":"Organization","name":"Ninh Khắc Duy","logo":{"@type":"ImageObject","url":"https://LittleNakiri.github.io/SkibidiBlog/media/website/437732466_812709017551221_6132722534969158639_n.jpg","height":540,"width":720}}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript><link rel="stylesheet" href="https://LittleNakiri.github.io/SkibidiBlog/media/plugins/docSearch/docsearch.min.css"></head><body class="post-template"><div class="container"><header class="top" id="js-top"><div><a class="logo" href="https://LittleNakiri.github.io/SkibidiBlog/"><img src="https://LittleNakiri.github.io/SkibidiBlog/media/website/437732466_812709017551221_6132722534969158639_n.jpg" alt="SkibidiBlog" width="720" height="540"></a></div></header><main class="post"><article class="content wrapper"><div class="hero hero--full"><header class="hero__header"><h1>Java Threads</h1><address>by <a href="https://LittleNakiri.github.io/SkibidiBlog/authors/ninh-khac-duy/" rel="author">Ninh Khắc Duy</a></address>published on <time datetime="2024-12-30T23:17">December 30, 2024</time></header><figure class="hero__image"><img src="https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/1_CRwBFK3fJl6ntmdQ6hEsVQ.jpg" srcset="https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/responsive/1_CRwBFK3fJl6ntmdQ6hEsVQ-xs.jpg 300w, https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/responsive/1_CRwBFK3fJl6ntmdQ6hEsVQ-sm.jpg 480w, https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/responsive/1_CRwBFK3fJl6ntmdQ6hEsVQ-md.jpg 768w, https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/responsive/1_CRwBFK3fJl6ntmdQ6hEsVQ-lg.jpg 1024w, https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/responsive/1_CRwBFK3fJl6ntmdQ6hEsVQ-xl.jpg 1360w, https://LittleNakiri.github.io/SkibidiBlog/media/posts/5/responsive/1_CRwBFK3fJl6ntmdQ6hEsVQ-2xl.jpg 1600w" sizes="100vw" loading="eager" height="768" width="1024" alt=""></figure></div><div class="content__entry"><h2><span>Luồng Java</span></h2><p><span>Luồng cho phép chương trình hoạt động hiệu quả hơn bằng cách thực hiện nhiều việc cùng một lúc.</span></p><p><span>Luồng có thể được sử dụng để thực hiện các tác vụ phức tạp trong nền mà không làm gián đoạn chương trình chính.</span></p><hr><h2><span>Tạo một chủ đề</span></h2><p><span>Có hai cách để tạo chủ đề.</span></p><p><span>Nó có thể được tạo ra bằng cách mở rộng </span><code class="w3-codespan">Thread</code><span>lớp và ghi đè </span><code class="w3-codespan">run()</code><span> phương thức của nó:</span></p><div class="w3-example"><h3><span>Mở rộng cú pháp</span></h3><pre class="w3-white language-java" tabindex="0"><code>public class Main extends Thread {
+  public void run() {
+    System.out.println("This code is running in a thread");
+  } 
+}</code></pre></div><p><span>Một cách khác để tạo luồng là triển khai </span><code class="w3-codespan">Runnable</code><span>giao diện:</span></p><div class="w3-example"><h3><span>Thực hiện cú pháp</span></h3><pre class="w3-white language-java" tabindex="0"><code>public class Main implements Runnable {
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}</code></pre></div><hr><h2><span>Chủ đề đang chạy</span></h2><p><span>Nếu lớp mở rộng </span><code class="w3-codespan">Thread</code><span>lớp, luồng có thể được chạy bằng cách tạo một thể hiện của lớp và gọi </span><code class="w3-codespan">start()</code><span>phương thức của nó:</span></p><div class="w3-example"><h3><span>Mở rộng ví dụ</span></h3><pre class="w3-white language-java" tabindex="0"><code>public class Main extends Thread {
+  public static void main(String[] args) {
+    Main thread = new Main();
+    thread.start();
+    System.out.println("This code is outside of the thread");
+  }
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}</code></pre></div><p><span>Nếu lớp triển khai </span><code class="w3-codespan">Runnable</code><span>giao diện, luồng có thể được chạy bằng cách truyền một thể hiện của lớp tới hàm </span><code class="w3-codespan">Thread</code><span>tạo của đối tượng, sau đó gọi phương thức của luồng </span><code class="w3-codespan">start()</code><span>:</span></p><div class="w3-example"><h3><span>Ví dụ thực hiện</span></h3><pre class="w3-white language-java" tabindex="0"><code>public class Main implements Runnable {
+  public static void main(String[] args) {
+    Main obj = new Main();
+    Thread thread = new Thread(obj);
+    thread.start();
+    System.out.println("This code is outside of the thread");
+  }
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}</code></pre></div><div class="w3-note w3-panel"><p><strong><span>Sự khác biệt giữa "mở rộng" và "triển khai" Luồng</span></strong></p><p><span>Sự khác biệt chính là khi một lớp mở rộng lớp Thread, bạn không thể mở rộng bất kỳ lớp nào khác, nhưng bằng cách triển khai giao diện Runnable, bạn cũng có thể mở rộng từ một lớp khác, như: class </span><code class="w3-codespan">MyClass extends OtherClass implements Runnable</code><span>.</span></p></div><hr><h2><span>Các vấn đề đồng thời</span></h2><p><span>Vì các luồng chạy cùng lúc với các phần khác của chương trình nên không có cách nào để biết mã sẽ chạy theo thứ tự nào. Khi các luồng và chương trình chính đọc và ghi cùng một biến, các giá trị là không thể đoán trước. Các vấn đề phát sinh từ điều này được gọi là các vấn đề đồng thời.</span></p><div class="w3-example"><h3><span>Ví dụ</span></h3><p><span>Một ví dụ mã trong đó giá trị của biến </span><strong><span>amount</span></strong><span> là không thể đoán trước:</span></p><pre class="w3-white language-java" tabindex="0"><code>public class Main extends Thread {
+  public static int amount = 0;
+
+  public static void main(String[] args) {
+    Main thread = new Main();
+    thread.start();
+    System.out.println(amount);
+    amount++;
+    System.out.println(amount);
+  } } }
+
+  public void run() {
+    amount++;
+  
+</code></pre></div><p><span>Để tránh các vấn đề đồng thời, tốt nhất là chia sẻ càng ít thuộc tính giữa các luồng càng tốt. Nếu cần chia sẻ các thuộc tính, một giải pháp khả thi là sử dụng phương </span><code class="w3-codespan">isAlive()</code><span> thức của luồng để kiểm tra xem luồng đã chạy xong chưa trước khi sử dụng bất kỳ thuộc tính nào mà luồng có thể thay đổi.</span></p><div class="w3-example"><h3><span>Ví dụ</span></h3><p><span>Sử dụng </span><code class="w3-codespan">isAlive()</code><span>để ngăn ngừa các vấn đề đồng thời:</span></p><pre class="w3-white language-java" tabindex="0"><code>public class Main extends Thread {
+  public static int amount = 0;
+
+  public static void main(String[] args) {
+    Main thread = new Main();
+    thread.start();
+    // Wait for the thread to finish
+    while(thread.isAlive()) {
+      System.out.println("Waiting...");
+    } } } }
+    // Update amount and print its value
+    System.out.println("Main: " + amount);
+    amount++;
+    System.out.println("Main: " + amount);
+  
+  public void run() {
+    amount++;
+  </code></pre></div></div><aside><p class="content__last-updated">This article was updated on December 30, 2024</p><div class="content__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FLittleNakiri.github.io%2FSkibidiBlog%2Fjava-threads.html" class="js-share facebook" title="Facebook" rel="nofollow noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><use xlink:href="https://LittleNakiri.github.io/SkibidiBlog/assets/svg/svg-map.svg#facebook"/></svg> Facebook </a><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2FLittleNakiri.github.io%2FSkibidiBlog%2Fjava-threads.html&amp;media=https%3A%2F%2FLittleNakiri.github.io%2FSkibidiBlog%2Fmedia%2Fposts%2F5%2F1_CRwBFK3fJl6ntmdQ6hEsVQ.jpg&amp;description=Java%20Threads" class="js-share pinterest" title="Pinterest" rel="nofollow noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><use xlink:href="https://LittleNakiri.github.io/SkibidiBlog/assets/svg/svg-map.svg#pinterest"/></svg> Pinterest </a><a href="https://mix.com/add?url=https%3A%2F%2FLittleNakiri.github.io%2FSkibidiBlog%2Fjava-threads.html" class="js-share mix" title="Mix" rel="nofollow noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><use xlink:href="https://LittleNakiri.github.io/SkibidiBlog/assets/svg/svg-map.svg#mix"/></svg> Mix </a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2FLittleNakiri.github.io%2FSkibidiBlog%2Fjava-threads.html" class="js-share linkedin" title="LinkedIn" rel="nofollow noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><use xlink:href="https://LittleNakiri.github.io/SkibidiBlog/assets/svg/svg-map.svg#linkedin"/></svg> LinkedIn </a><a href="https://buffer.com/add?text=Java%20Threads&amp;url=https%3A%2F%2FLittleNakiri.github.io%2FSkibidiBlog%2Fjava-threads.html" class="js-share buffer" title="Buffer" rel="nofollow noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><use xlink:href="https://LittleNakiri.github.io/SkibidiBlog/assets/svg/svg-map.svg#buffer"/></svg> Buffer </a><a href="https://api.whatsapp.com/send?text=Java%20Threads https%3A%2F%2FLittleNakiri.github.io%2FSkibidiBlog%2Fjava-threads.html" class="js-share whatsapp" rel="nofollow noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><use xlink:href="https://LittleNakiri.github.io/SkibidiBlog/assets/svg/svg-map.svg#whatsapp"/></svg> WhatsApp</a></div></aside><footer><div class="content__bio"><img src="https://LittleNakiri.github.io/SkibidiBlog/media/website/128761632_764119544180725_5186582623992057581_n.jpg" loading="lazy" height="531" width="526" alt="Ninh Khắc Duy"><h3><a href="https://LittleNakiri.github.io/SkibidiBlog/authors/ninh-khac-duy/" class="inverse" title="Ninh Khắc Duy">Ninh Khắc Duy</a></h3></div><nav class="content__nav"><div class="content__nav__prev">Previous Post<h3 class="h5"><a href="https://LittleNakiri.github.io/SkibidiBlog/ke-thua-java.html" class="inverse" rel="prev">Kế thừa Java</a></h3></div><div class="content__nav__next">Next Post<h3 class="h5"><a href="https://LittleNakiri.github.io/SkibidiBlog/tu-khoa-java.html" class="inverse" rel="next">Từ khóa Java</a></h3></div></nav><div class="content__related"><h3>Related posts</h3><div class="content__related__wrap"><figure><a href="https://LittleNakiri.github.io/SkibidiBlog/thuoc-tinh-doi-tuong-javascript.html"><img src="https://LittleNakiri.github.io/SkibidiBlog/media/posts/8/responsive/javascript-object-cover-xs.png" loading="lazy" alt=""></a><figcaption><time datetime="2024-12-30T23:29">December 30, 2024</time><h4><a href="https://LittleNakiri.github.io/SkibidiBlog/thuoc-tinh-doi-tuong-javascript.html" class="inverse">Thuộc tính đối tượng JavaScript</a></h4></figcaption></figure><figure><a href="https://LittleNakiri.github.io/SkibidiBlog/nguyen-mau-doi-tuong-javascript.html"><img src="https://LittleNakiri.github.io/SkibidiBlog/media/posts/7/responsive/maxresdefault-xs.jpg" loading="lazy" alt=""></a><figcaption><time datetime="2024-12-30T23:23">December 30, 2024</time><h4><a href="https://LittleNakiri.github.io/SkibidiBlog/nguyen-mau-doi-tuong-javascript.html" class="inverse">Nguyên mẫu đối tượng JavaScript</a></h4></figcaption></figure><figure><a href="https://LittleNakiri.github.io/SkibidiBlog/tu-khoa-java.html"><img src="https://LittleNakiri.github.io/SkibidiBlog/media/posts/6/responsive/list-of-java-keywords-66e2956014bc7-xs.webp" loading="lazy" alt=""></a><figcaption><time datetime="2024-12-30T23:19">December 30, 2024</time><h4><a href="https://LittleNakiri.github.io/SkibidiBlog/tu-khoa-java.html" class="inverse">Từ khóa Java</a></h4></figcaption></figure></div></div></footer></article><div class="comments-area wrapper"><div class="comments"><div class="comments-wrapper"><h2>Comments</h2><div class="fb-comments" data-href="https://LittleNakiri.github.io/SkibidiBlog/java-threads.html" data-width="100%" data-colorscheme="light" data-lazy="true" data-order-by="reverse_time" data-numposts="5"></div><noscript>Please enable JS to use the comments form.</noscript></div></div><div id="fb-root"></div><script type="text/javascript" async defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0">nonce="n4mWU9e7"</script></div></main></div><footer class="footer"><div class="footer__wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div><button onclick="backToTopFunction()" id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg><use xlink:href="https://LittleNakiri.github.io/SkibidiBlog/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script>window.publiiThemeMenuConfig = {    
+        mobileMenuMode: 'sidebar',
+        animationSpeed: 300,
+        submenuWidth: 'auto',
+        doubleClickTime: 500,
+        mobileMenuExpandableSubmenus: true, 
+        relatedContainerForOverlayMenuSelector: '.top',
+   };</script><script defer="defer" src="https://LittleNakiri.github.io/SkibidiBlog/assets/js/scripts.min.js?v=e2bc0e7d7ff60ea78ee920470cf8c8a1"></script><script>var images = document.querySelectorAll('img[loading]');
+
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><script src="https://LittleNakiri.github.io/SkibidiBlog/media/plugins/docSearch/docsearch.min.js"></script><script type="text/javascript">docsearch({
+				container: '#docsearch',
+				appId: '',
+				indexName: '',
+				apiKey: '',
+				debug: false
+			});</script></body></html>
