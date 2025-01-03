@@ -3,7 +3,7 @@
     <title>SkibidiBlog</title>
     <link href="https://LittleNakiri.github.io/SkibidiBlog/feed.xml" rel="self" />
     <link href="https://LittleNakiri.github.io/SkibidiBlog" />
-    <updated>2024-12-30T23:36:03+07:00</updated>
+    <updated>2025-01-04T01:28:47+07:00</updated>
     <author>
         <name>Ninh Khắc Duy</name>
     </author>
@@ -28,97 +28,97 @@
         <content type="html">
             <![CDATA[
                     <p><img src="https://LittleNakiri.github.io/SkibidiBlog/media/posts/10/1_bgcutrYqFA7HBsIwYjPPJw.jpg" class="type:primaryImage" alt="" /></p>
-                <h2><span>Phương pháp bảo vệ đối tượng</span></h2>
+                <h2>Phương pháp bảo vệ đối tượng</h2>
 <div class="w3-example">
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Prevents re-assignment<br></span><span class="jskeywordcolor">const</span> car = {type:<span class="jsstringcolor">"Fiat"</span>, model:<span class="jsstringcolor">"500"</span>, color:<span class="jsstringcolor">"white"</span>};<br><br><span class="commentcolor">// Prevents adding object properties<br></span>Object.<span class="jspropertycolor">preventExtensions</span>(object)<br><br><span class="commentcolor">// Returns true if properties can be added to an object<br></span>Object.<span class="jspropertycolor">isExtensible</span>(object)<br><br><span class="commentcolor">// Prevents adding and deleting object properties<br></span>Object.<span class="jspropertycolor">seal</span>(object)<br><br><span class="commentcolor">// Returns true if object is sealed<br></span>Object.<span class="jspropertycolor">isSealed</span>(object)<br><br><span class="commentcolor">// Prevents any changes to an object<br></span>Object.<span class="jspropertycolor">freeze</span>(object)<br><br><span class="commentcolor">// Returns true if object is frozen<br></span>Object.<span class="jspropertycolor">isFrozen</span>(object)</span></div>
 </div>
 <hr>
-<h2><span>Sử dụng const</span></h2>
-<p><span>Cách phổ biến nhất để bảo vệ một đối tượng khỏi bị thay đổi là sử dụng </span><code class="w3-codespan">const</code><span>từ khóa.</span></p>
-<p><span>Bạn </span><code class="w3-codespan">const</code><span>không thể gán lại đối tượng, nhưng vẫn có thể thay đổi giá trị của thuộc tính, xóa thuộc tính hoặc tạo thuộc tính mới.</span></p>
+<h2>Sử dụng const</h2>
+<p>Cách phổ biến nhất để bảo vệ một đối tượng khỏi bị thay đổi là sử dụng <code class="w3-codespan">const</code>từ khóa.</p>
+<p>Bạn <code class="w3-codespan">const</code>không thể gán lại đối tượng, nhưng vẫn có thể thay đổi giá trị của thuộc tính, xóa thuộc tính hoặc tạo thuộc tính mới.</p>
 <hr>
-<h2><span>Đối tượng JavaScript.preventExtensions()</span></h2>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.preventExtensions()</code><span>ngăn chặn việc thêm thuộc tính vào đối tượng.</span></p>
+<h2>Đối tượng JavaScript.preventExtensions()</h2>
+<p>Phương pháp này <code class="w3-codespan">Object.preventExtensions()</code>ngăn chặn việc thêm thuộc tính vào đối tượng.</p>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Object<br></span><span class="jskeywordcolor">const</span> person = {firstName:<span class="jsstringcolor">"John"</span>, lastName:<span class="jsstringcolor">"Doe"</span>};<br><br><span class="commentcolor">// Prevent Extensions<br></span>Object.<span class="jspropertycolor">preventExtensions</span>(person);<br><br><span class="commentcolor">// This will throw an error<br></span>person.<span class="jspropertycolor">nationality</span> = <span class="jsstringcolor">"English"</span>;</span></div>
 </div>
-<p><span>Vì mảng là đối tượng nên mảng cũng có thể được ngăn không cho mở rộng:</span></p>
+<p>Vì mảng là đối tượng nên mảng cũng có thể được ngăn không cho mở rộng:</p>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Array<br></span><span class="jskeywordcolor">const</span> fruits = [<span class="jsstringcolor">"Banana"</span>, <span class="jsstringcolor">"Orange"</span>, <span class="jsstringcolor">"Apple"</span>, <span class="jsstringcolor">"Mango"</span>];<br>Object.<span class="jspropertycolor">preventExtensions</span>(fruits);<br><br><span class="commentcolor">// This will throw an error:<br></span>fruits.<span class="jspropertycolor">push</span>(<span class="jsstringcolor">"Kiwi"</span>);</span></div>
 </div>
 <hr>
-<h2><span>Đối tượng JavaScript.isExtensible()</span></h2>
-<p><span>Bạn có thể sử dụng </span><code class="w3-codespan">Object.isExtensible()</code><span>để kiểm tra xem một đối tượng có thể mở rộng được hay không.</span></p>
-<p><span>Trả </span><code class="w3-codespan">Object.isExtensible()</code><span>về true nếu đối tượng có thể mở rộng.</span></p>
+<h2>Đối tượng JavaScript.isExtensible()</h2>
+<p>Bạn có thể sử dụng <code class="w3-codespan">Object.isExtensible()</code>để kiểm tra xem một đối tượng có thể mở rộng được hay không.</p>
+<p>Trả <code class="w3-codespan">Object.isExtensible()</code>về true nếu đối tượng có thể mở rộng.</p>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Object<br></span><span class="jskeywordcolor">const</span> person = {firstName:<span class="jsstringcolor">"John"</span>, lastName:<span class="jsstringcolor">"Doe"</span>};<br><br><span class="commentcolor">// Prevent Extensions<br></span>Object.<span class="jspropertycolor">preventExtensions</span>(person);<br><br><span class="commentcolor">// This will return false<br></span><span class="jskeywordcolor">let</span> answer = Object.<span class="jspropertycolor">isExtensible</span>(person);</span></div>
 <br>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Array<br></span><span class="jskeywordcolor">const</span> fruits = [<span class="jsstringcolor">"Banana"</span>, <span class="jsstringcolor">"Orange"</span>, <span class="jsstringcolor">"Apple"</span>, <span class="jsstringcolor">"Mango"</span>];<br><br><span class="commentcolor">// Prevent Extensions<br></span>Object.<span class="jspropertycolor">preventExtensions</span>(fruits);<br><br><span class="commentcolor">// This will return false<br></span><span class="jskeywordcolor">let</span> answer = Object.<span class="jspropertycolor">isExtensible</span>(fruits);</span></div>
 </div>
 <hr>
-<h2><span>Đối tượng JavaScript.seal()</span></h2>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.seal()</code><span>ngăn chặn việc thêm hoặc xóa các thuộc tính mới.</span></p>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.seal()</code><span>khiến các thuộc tính hiện có không thể cấu hình được.</span></p>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.isSealed()</code><span>có thể được sử dụng để kiểm tra xem một vật thể có được niêm phong hay không.</span></p>
+<h2>Đối tượng JavaScript.seal()</h2>
+<p>Phương pháp này <code class="w3-codespan">Object.seal()</code>ngăn chặn việc thêm hoặc xóa các thuộc tính mới.</p>
+<p>Phương pháp này <code class="w3-codespan">Object.seal()</code>khiến các thuộc tính hiện có không thể cấu hình được.</p>
+<p>Phương pháp này <code class="w3-codespan">Object.isSealed()</code>có thể được sử dụng để kiểm tra xem một vật thể có được niêm phong hay không.</p>
 <div class="w3-note">
-<h2><span>Ghi chú</span></h2>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.seal()</code><span>sẽ không hoạt động ở chế độ không nghiêm ngặt và sẽ báo lỗi TypeError ở chế độ nghiêm ngặt.</span></p>
+<h2>Ghi chú</h2>
+<p>Phương pháp này <code class="w3-codespan">Object.seal()</code>sẽ không hoạt động ở chế độ không nghiêm ngặt và sẽ báo lỗi TypeError ở chế độ nghiêm ngặt.</p>
 </div>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="jsstringcolor">"use strict"</span><br><span class="commentcolor">// Create Object<br></span><span class="jskeywordcolor">const</span> person = {<br>  firstName: <span class="jsstringcolor">"John"</span>,<br>  lastName: <span class="jsstringcolor">"Doe"</span>,<br>  age: <span class="jsnumbercolor">50</span>,<br>  eyeColor: <span class="jsstringcolor">"blue"</span><br>};<br><br><span class="commentcolor">// Seal Object<br></span>Object.<span class="jspropertycolor">seal</span>(person)<br><br><span class="commentcolor">// This will throw an error<br></span><span class="jskeywordcolor">delete</span> person.<span class="jspropertycolor">age</span>;</span></div>
 </div>
-<p><span>Vì mảng là đối tượng nên mảng cũng có thể được niêm phong:</span></p>
+<p>Vì mảng là đối tượng nên mảng cũng có thể được niêm phong:</p>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Array<br></span><span class="jskeywordcolor">const</span> fruits = [<span class="jsstringcolor">"Banana"</span>, <span class="jsstringcolor">"Orange"</span>, <span class="jsstringcolor">"Apple"</span>, <span class="jsstringcolor">"Mango"</span>];<br>Object.<span class="jspropertycolor">seal</span>(fruits);<br><br><span class="commentcolor">// This will throw an error:<br></span>fruits.<span class="jspropertycolor">push</span>(<span class="jsstringcolor">"Kiwi"</span>);</span></div>
 </div>
 <hr>
-<h2><span>Đối tượng JavaScript.isSealed()</span></h2>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.isSealed()</code><span>có thể được sử dụng để kiểm tra xem một vật thể có được niêm phong hay không.</span></p>
-<p><span>Trả </span><code class="w3-codespan">Object.isSealed()</code><span>về giá trị true nếu đối tượng được niêm phong.</span></p>
+<h2>Đối tượng JavaScript.isSealed()</h2>
+<p>Phương pháp này <code class="w3-codespan">Object.isSealed()</code>có thể được sử dụng để kiểm tra xem một vật thể có được niêm phong hay không.</p>
+<p>Trả <code class="w3-codespan">Object.isSealed()</code>về giá trị true nếu đối tượng được niêm phong.</p>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Object<br></span><span class="jskeywordcolor">const</span> person = {firstName:<span class="jsstringcolor">"John"</span>, lastName:<span class="jsstringcolor">"Doe"</span>};<br><br><span class="commentcolor">// Seal Object<br></span>Object.<span class="jspropertycolor">seal</span>(person);<br><br><span class="commentcolor">// This will return true<br></span><span class="jskeywordcolor">let</span> answer = Object.<span class="jspropertycolor">isSealed</span>(person);</span></div>
 <br>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Array<br></span><span class="jskeywordcolor">const</span> fruits = [<span class="jsstringcolor">"Banana"</span>, <span class="jsstringcolor">"Orange"</span>, <span class="jsstringcolor">"Apple"</span>, <span class="jsstringcolor">"Mango"</span>];<br><br><span class="commentcolor">// Seal Array<br></span>Object.<span class="jspropertycolor">seal</span>(fruits);<br><br><span class="commentcolor">// This will return true<br></span><span class="jskeywordcolor">let</span> answer = Object.<span class="jspropertycolor">isSealed</span>(fruits);</span></div>
 </div>
 <hr>
-<h2><span>Đối tượng JavaScript.freeze()</span></h2>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.freeze()</code><span>ngăn chặn mọi thay đổi đối với một đối tượng.</span></p>
-<p><span>Các đối tượng bị đóng băng chỉ có thể đọc.</span></p>
-<p><span>Không được phép sửa đổi, thêm hoặc xóa bất kỳ thuộc tính nào.</span></p>
+<h2>Đối tượng JavaScript.freeze()</h2>
+<p>Phương pháp này <code class="w3-codespan">Object.freeze()</code>ngăn chặn mọi thay đổi đối với một đối tượng.</p>
+<p>Các đối tượng bị đóng băng chỉ có thể đọc.</p>
+<p>Không được phép sửa đổi, thêm hoặc xóa bất kỳ thuộc tính nào.</p>
 <div class="w3-note">
-<h2><span>Ghi chú</span></h2>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.freeze()</code><span>sẽ không hoạt động ở chế độ không nghiêm ngặt và sẽ báo lỗi TypeError ở chế độ nghiêm ngặt.</span></p>
+<h2>Ghi chú</h2>
+<p>Phương pháp này <code class="w3-codespan">Object.freeze()</code>sẽ không hoạt động ở chế độ không nghiêm ngặt và sẽ báo lỗi TypeError ở chế độ nghiêm ngặt.</p>
 </div>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="jsstringcolor">"use strict"</span><br><span class="commentcolor">// Create Object<br></span><span class="jskeywordcolor">const</span> person = {<br>  firstName: <span class="jsstringcolor">"John"</span>,<br>  lastName: <span class="jsstringcolor">"Doe"</span>,<br>  age: <span class="jsnumbercolor">50</span>,<br>  eyeColor: <span class="jsstringcolor">"blue"</span><br>};<br><br><span class="commentcolor">// Freeze Object<br></span>Object.<span class="jspropertycolor">freeze</span>(person)<br><br><span class="commentcolor">// This will throw an error<br></span>person.<span class="jspropertycolor">age</span> = <span class="jsnumbercolor">51</span>;</span></div>
 </div>
-<p><span>Vì mảng là đối tượng nên mảng cũng có thể bị đóng băng:</span></p>
+<p>Vì mảng là đối tượng nên mảng cũng có thể bị đóng băng:</p>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="jskeywordcolor">const</span> fruits = [<span class="jsstringcolor">"Banana"</span>, <span class="jsstringcolor">"Orange"</span>, <span class="jsstringcolor">"Apple"</span>, <span class="jsstringcolor">"Mango"</span>];<br>Object.<span class="jspropertycolor">freeze</span>(fruits);<br><br><span class="commentcolor">// This will trow an error:<br></span>fruits.<span class="jspropertycolor">push</span>(<span class="jsstringcolor">"Kiwi"</span>);</span></div>
 </div>
 <hr>
-<h2><span>Đối tượng JavaScript.isFrozen()</span></h2>
-<p><span>Phương pháp này </span><code class="w3-codespan">Object.isFrozen()</code><span>có thể được sử dụng để kiểm tra xem một vật thể có bị đóng băng hay không.</span></p>
-<p><span>Trả </span><code class="w3-codespan">Object.isFrozen()</code><span>về giá trị true nếu đối tượng bị đóng băng.</span></p>
+<h2>Đối tượng JavaScript.isFrozen()</h2>
+<p>Phương pháp này <code class="w3-codespan">Object.isFrozen()</code>có thể được sử dụng để kiểm tra xem một vật thể có bị đóng băng hay không.</p>
+<p>Trả <code class="w3-codespan">Object.isFrozen()</code>về giá trị true nếu đối tượng bị đóng băng.</p>
 <div class="w3-example">
-<h3><span>Ví dụ</span></h3>
+<h3>Ví dụ</h3>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Object<br></span><span class="jskeywordcolor">const</span> person = {firstName:<span class="jsstringcolor">"John"</span>, lastName:<span class="jsstringcolor">"Doe"</span>};<br><br><span class="commentcolor">// Freeze Object<br></span>Object.<span class="jspropertycolor">freeze</span>(person);<br><br><span class="commentcolor">// This will return true<br></span><span class="jskeywordcolor">let</span> answer = Object.<span class="jspropertycolor">isFrozen</span>(person);</span></div>
 <br>
 <div class="w3-code notranslate jsHigh"><span class="jscolor"><span class="commentcolor">// Create Array<br></span><span class="jskeywordcolor">const</span> fruits = [<span class="jsstringcolor">"Banana"</span>, <span class="jsstringcolor">"Orange"</span>, <span class="jsstringcolor">"Apple"</span>, <span class="jsstringcolor">"Mango"</span>];<br>Object.<span class="jspropertycolor">freeze</span>(fruits);<br><br><span class="commentcolor">// This will return true:<br></span><span class="jskeywordcolor">let</span> answer = Object.<span class="jspropertycolor">isFrozen</span>(fruits);</span></div>
 </div>
 <hr>
 <div class="w3-note">
-<h2><span>Tham chiếu đối tượng đầy đủ</span></h2>
-<p><span>Để có thông tin tham khảo đầy đủ, hãy truy cập:</span></p>
-<p><span>Tài liệu tham khảo này chứa các mô tả và ví dụ về tất cả Thuộc tính và Phương thức của Đối tượng.</span></p>
+<h2>Tham chiếu đối tượng đầy đủ</h2>
+<p>Để có thông tin tham khảo đầy đủ, hãy truy cập:</p>
+<p>Tài liệu tham khảo này chứa các mô tả và ví dụ về tất cả Thuộc tính và Phương thức của Đối tượng.</p>
 </div>
             ]]>
         </content>
